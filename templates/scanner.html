@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Scanner - CyberGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/scanner" class="nav-link active">Security Scanner</a></li>
+                <li><a href="/advanced" class="nav-link">Advanced Tools</a></li>
+                <li><a href="/education" class="nav-link">Learn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Scanner Header -->
+        <section class="scanner-header">
+            <h1>Security Scanner</h1>
+            <p>Analyze URLs, emails, and media files for potential security threats</p>
+        </section>
+
+        <!-- Scanner Tabs -->
+        <div class="scanner-container">
+            <div class="scanner-tabs">
+                <button class="tab-button active" data-tab="url">
+                    <i class="fas fa-link"></i>
+                    URL Scanner
+                </button>
+                <button class="tab-button" data-tab="email">
+                    <i class="fas fa-envelope"></i>
+                    Email Analyzer
+                </button>
+                <button class="tab-button" data-tab="file">
+                    <i class="fas fa-file-image"></i>
+                    File Scanner
+                </button>
+            </div>
+
+            <!-- URL Scanner Tab -->
+            <div class="tab-content active" id="url-tab">
+                <div class="scanner-card">
+                    <div class="scanner-header-text">
+                        <h3><i class="fas fa-link"></i> URL Security Analysis</h3>
+                        <p>Enter a URL to check for phishing indicators and security threats</p>
+                    </div>
+                    
+                    <form id="url-form" class="scanner-form">
+                        <div class="input-group">
+                            <input type="url" id="url-input" placeholder="https://example.com" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                                Scan URL
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="url-result" class="result-container" style="display: none;">
+                        <div class="result-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="result-title">Security Analysis Results</span>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Scanner Tab -->
+            <div class="tab-content" id="email-tab">
+                <div class="scanner-card">
+                    <div class="scanner-header-text">
+                        <h3><i class="fas fa-envelope"></i> Email Security Analysis</h3>
+                        <p>Analyze email content for phishing attempts and suspicious patterns</p>
+                    </div>
+                    
+                    <form id="email-form" class="scanner-form">
+                        <div class="form-group">
+                            <label for="sender-email">Sender Email (Optional)</label>
+                            <input type="email" id="sender-email" placeholder="sender@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email-content">Email Content</label>
+                            <textarea id="email-content" rows="8" placeholder="Paste the email content here..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Analyze Email
+                        </button>
+                    </form>
+                    
+                    <div id="email-result" class="result-container" style="display: none;">
+                        <div class="result-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="result-title">Email Analysis Results</span>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File Scanner Tab -->
+            <div class="tab-content" id="file-tab">
+                <div class="scanner-card">
+                    <div class="scanner-header-text">
+                        <h3><i class="fas fa-file-image"></i> Media File Security Scan</h3>
+                        <p>Upload and analyze media files for potential security threats</p>
+                    </div>
+                    
+                    <form id="file-form" class="scanner-form" enctype="multipart/form-data">
+                        <div class="file-upload-area" id="file-upload-area">
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p class="upload-text">
+                                <strong>Click to upload</strong> or drag and drop
+                            </p>
+                            <p class="upload-subtext">
+                                Supports: JPG, PNG, GIF, PDF, TXT, MP4, AVI, MOV (Max 16MB)
+                            </p>
+                            <input type="file" id="file-input" accept=".jpg,.jpeg,.png,.gif,.pdf,.txt,.mp4,.avi,.mov" hidden>
+                        </div>
+                        
+                        <div id="file-info" class="file-info" style="display: none;">
+                            <div class="file-details">
+                                <i class="fas fa-file"></i>
+                                <span class="file-name"></span>
+                                <span class="file-size"></span>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-small" id="remove-file">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="scan-file-btn" disabled>
+                            <i class="fas fa-search"></i>
+                            Scan File
+                        </button>
+                    </form>
+                    
+                    <div id="file-result" class="result-container" style="display: none;">
+                        <div class="result-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <span class="result-title">File Analysis Results</span>
+                        </div>
+                        <div class="result-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Section -->
+        <section class="security-tips">
+            <h3><i class="fas fa-lightbulb"></i> Security Tips</h3>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>URL Safety</h4>
+                    <ul>
+                        <li>Check for HTTPS encryption</li>
+                        <li>Verify domain spelling</li>
+                        <li>Be wary of shortened URLs</li>
+                        <li>Look for suspicious subdomains</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h4>Email Security</h4>
+                    <ul>
+                        <li>Verify sender authenticity</li>
+                        <li>Check for urgent language</li>
+                        <li>Don't click suspicious links</li>
+                        <li>Verify requests independently</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h4>File Safety</h4>
+                    <ul>
+                        <li>Scan files before opening</li>
+                        <li>Check file extensions</li>
+                        <li>Be cautious with executables</li>
+                        <li>Use updated antivirus</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p>Analyzing for security threats...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>CyberGuard</span>
+                    </div>
+                    <p>Advanced cybersecurity education platform for students and professionals.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CyberGuard. Educational cybersecurity platform for learning purposes.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scanner.js') }}"></script>
+</body>
+</html>

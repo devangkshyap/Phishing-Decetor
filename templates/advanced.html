@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Tools - CyberGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/scanner" class="nav-link">Security Scanner</a></li>
+                <li><a href="/advanced" class="nav-link active">Advanced Tools</a></li>
+                <li><a href="/education" class="nav-link">Learn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Advanced Tools Header -->
+        <section class="advanced-header">
+            <h1>Advanced Security Tools</h1>
+            <p>Professional-grade security analysis and threat intelligence</p>
+        </section>
+
+        <!-- API Status Section -->
+        <section class="api-status-section" style="margin: 2rem 0;">
+            <div class="container">
+                <h3><i class="fas fa-plug"></i> Threat Intelligence APIs</h3>
+                <p>Enhanced detection using multiple security databases</p>
+                
+                <div class="api-status-grid" id="api-status-grid">
+                    <!-- API status will be loaded here -->
+                </div>
+                
+                <div class="api-setup-info">
+                    <p><i class="fas fa-info-circle"></i> 
+                        <strong>Want more accurate results?</strong> 
+                        See <a href="#" onclick="alert('Check the API_SETUP_GUIDE.md file for detailed setup instructions!')" 
+                               style="color: var(--primary-color);">API Setup Guide</a> 
+                        to connect with professional threat intelligence services.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tools Grid -->
+        <div class="advanced-container">
+            
+            <!-- Page Preview Tool -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-eye"></i>
+                    <h3>Safe Page Preview</h3>
+                    <p>Preview suspicious websites safely without visiting them</p>
+                </div>
+                
+                <div class="tool-content">
+                    <form id="preview-form" class="tool-form">
+                        <div class="input-group">
+                            <input type="url" id="preview-url" placeholder="https://suspicious-site.com" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-eye"></i>
+                                Preview
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="preview-result" class="preview-container" style="display: none;">
+                        <div class="preview-header">
+                            <div class="preview-info">
+                                <img id="preview-favicon" class="preview-favicon" src="" alt="">
+                                <div class="preview-details">
+                                    <h4 id="preview-title">Loading...</h4>
+                                    <p id="preview-url-display"></p>
+                                </div>
+                            </div>
+                            <div class="preview-status">
+                                <span id="preview-status-badge" class="status-badge"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-content">
+                            <div class="preview-description">
+                                <p id="preview-description">Loading page information...</p>
+                            </div>
+                            
+                            <!-- Screenshot Section -->
+                            <div class="preview-screenshot" id="preview-screenshot" style="display: none;">
+                                <h5><i class="fas fa-image"></i> Website Preview</h5>
+                                <div class="screenshot-container">
+                                    <img id="preview-screenshot-img" src="" alt="Website preview" class="screenshot-image">
+                                    <div class="screenshot-info">
+                                        <span id="screenshot-dimensions"></span>
+                                    </div>
+                                </div>
+                                <div class="screenshot-warning">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>This is a safe preview - you haven't visited the actual website</span>
+                                </div>
+                            </div>
+                            
+                            <div class="preview-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Status: <span id="status-code">-</span></span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    <span>Redirects: <span id="redirect-count">-</span></span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-weight"></i>
+                                    <span>Size: <span id="page-size">-</span></span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Screenshot: <span id="screenshot-status">-</span></span>
+                                </div>
+                            </div>
+                            
+                            <div class="preview-analysis" id="preview-analysis">
+                                <!-- Content analysis will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bulk URL Scanner -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-list"></i>
+                    <h3>Bulk URL Scanner</h3>
+                    <p>Scan multiple URLs simultaneously for threats</p>
+                </div>
+                
+                <div class="tool-content">
+                    <form id="bulk-scan-form" class="tool-form">
+                        <div class="form-group">
+                            <label for="bulk-urls">URLs to Scan (one per line, max 10)</label>
+                            <textarea id="bulk-urls" rows="6" placeholder="https://example1.com&#10;https://example2.com&#10;https://example3.com" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Scan All URLs
+                        </button>
+                    </form>
+                    
+                    <div id="bulk-result" class="bulk-results" style="display: none;">
+                        <div class="results-header">
+                            <h4><i class="fas fa-chart-bar"></i> Bulk Scan Results</h4>
+                            <div class="results-summary">
+                                <span class="summary-item safe">Safe: <span id="safe-count">0</span></span>
+                                <span class="summary-item warning">Suspicious: <span id="suspicious-count">0</span></span>
+                                <span class="summary-item danger">Dangerous: <span id="dangerous-count">0</span></span>
+                            </div>
+                        </div>
+                        <div id="bulk-results-list" class="results-list">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Domain Intelligence -->
+            <div class="tool-card">
+                <div class="tool-header">
+                    <i class="fas fa-globe"></i>
+                    <h3>Domain Intelligence</h3>
+                    <p>Deep analysis of domain reputation and history</p>
+                </div>
+                
+                <div class="tool-content">
+                    <form id="domain-form" class="tool-form">
+                        <div class="input-group">
+                            <input type="text" id="domain-input" placeholder="example.com" required>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                                Analyze
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div id="domain-result" class="domain-analysis" style="display: none;">
+                        <div class="analysis-tabs">
+                            <button class="analysis-tab active" data-tab="overview">Overview</button>
+                            <button class="analysis-tab" data-tab="whois">WHOIS</button>
+                            <button class="analysis-tab" data-tab="dns">DNS</button>
+                            <button class="analysis-tab" data-tab="ssl">SSL</button>
+                        </div>
+                        
+                        <div class="analysis-content">
+                            <div id="overview-tab" class="analysis-tab-content active">
+                                <!-- Overview content -->
+                            </div>
+                            <div id="whois-tab" class="analysis-tab-content">
+                                <!-- WHOIS content -->
+                            </div>
+                            <div id="dns-tab" class="analysis-tab-content">
+                                <!-- DNS content -->
+                            </div>
+                            <div id="ssl-tab" class="analysis-tab-content">
+                                <!-- SSL content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Threat Intelligence Dashboard -->
+            <div class="tool-card full-width">
+                <div class="tool-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Threat Intelligence Dashboard</h3>
+                    <p>Real-time cybersecurity threat landscape</p>
+                </div>
+                
+                <div class="tool-content">
+                    <div id="threat-dashboard" class="threat-dashboard">
+                        <div class="dashboard-stats">
+                            <div class="dashboard-stat">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="threats-blocked">-</span>
+                                    <span class="stat-label">Threats Blocked Today</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-stat">
+                                <i class="fas fa-fish"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="phishing-attempts">-</span>
+                                    <span class="stat-label">Phishing Attempts</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-stat">
+                                <i class="fas fa-bug"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="malware-detected">-</span>
+                                    <span class="stat-label">Malware Detected</span>
+                                </div>
+                            </div>
+                            <div class="dashboard-stat">
+                                <i class="fas fa-globe"></i>
+                                <div class="stat-info">
+                                    <span class="stat-number" id="suspicious-domains">-</span>
+                                    <span class="stat-label">Suspicious Domains</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-content">
+                            <div class="dashboard-section">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Top Threat Types</h4>
+                                <div id="top-threats" class="threat-list">
+                                    <!-- Threat list will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <div class="dashboard-section">
+                                <h4><i class="fas fa-lightbulb"></i> Daily Security Tips</h4>
+                                <div id="security-tips" class="tips-list">
+                                    <!-- Security tips will be populated here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay" style="display: none;">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <p id="loading-text">Analyzing security threats...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>CyberGuard</span>
+                    </div>
+                    <p>Advanced cybersecurity education platform for students and professionals.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CyberGuard. Educational cybersecurity platform for learning purposes.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/advanced.js') }}"></script>
+</body>
+</html>

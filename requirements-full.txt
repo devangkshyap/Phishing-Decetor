@@ -1,0 +1,13 @@
+# Full requirements with screenshot feature
+# Note: Screenshot feature may not work on all deployment platforms
+Flask==2.3.3
+Werkzeug==2.3.7
+requests==2.31.0
+python-whois==0.8.0
+dnspython==2.4.2
+beautifulsoup4==4.12.2
+python-dotenv==1.0.0
+gunicorn==21.2.0
+selenium==4.35.0
+webdriver-manager==4.0.2
+Pillow==11.3.0

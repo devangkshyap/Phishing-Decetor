@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initi                        </div>
+                    </div>
+                    
+                    <!-- Module Completion -->
+                    <div class="module-completion">
+                        <button class="btn btn-primary complete-module" data-module="media-security">
+                            <i class="fas fa-check"></i>
+                            Mark as Complete
+                        </button>
+                        <div class="completion-status" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Module Completed!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password Security Module -->le=1.0">
+    <title>Cybersecurity Education - CyberGuard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/scanner" class="nav-link">Security Scanner</a></li>
+                <li><a href="/advanced" class="nav-link">Advanced Tools</a></li>
+                <li><a href="/education" class="nav-link active">Learn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Education Header -->
+        <section class="education-header">
+            <h1>Cybersecurity Education Center</h1>
+            <p>Learn to identify and protect yourself from cyber threats</p>
+            
+            <!-- Progress Tracker -->
+            <div class="progress-tracker">
+                <div class="progress-info">
+                    <span class="progress-text">Learning Progress</span>
+                    <span class="progress-stats" id="progress-stats">0% Complete (0/4 modules)</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Modules -->
+        <div class="education-container">
+            
+            <!-- Phishing Awareness Module -->
+            <div class="education-module">
+                <div class="module-header">
+                    <i class="fas fa-fish"></i>
+                    <h2>Phishing Awareness</h2>
+                </div>
+                
+                <div class="module-content">
+                    <div class="content-section">
+                        <h3>What is Phishing?</h3>
+                        <p>Phishing is a cyber attack that uses disguised email as a weapon. The goal is to trick the email recipient into believing that the message is something they want or need.</p>
+                        
+                        <div class="warning-box">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <strong>Did you know?</strong>
+                                <p>91% of cyber attacks start with a phishing email, making it the most common attack vector.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Common Phishing Indicators</h3>
+                        <div class="indicators-grid">
+                            <div class="indicator-item">
+                                <i class="fas fa-clock"></i>
+                                <h4>Urgency Tactics</h4>
+                                <p>Messages claiming "urgent action required" or "expires today"</p>
+                            </div>
+                            <div class="indicator-item">
+                                <i class="fas fa-user-secret"></i>
+                                <h4>Suspicious Senders</h4>
+                                <p>Emails from unknown senders or suspicious domains</p>
+                            </div>
+                            <div class="indicator-item">
+                                <i class="fas fa-link"></i>
+                                <h4>Malicious Links</h4>
+                                <p>URLs that don't match the claimed destination</p>
+                            </div>
+                            <div class="indicator-item">
+                                <i class="fas fa-spell-check"></i>
+                                <h4>Poor Grammar</h4>
+                                <p>Spelling mistakes and grammatical errors</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Phishing Email Examples</h3>
+                        <div class="examples-container">
+                            <div class="example-email bad-example">
+                                <div class="email-header">
+                                    <span class="email-label danger">PHISHING EXAMPLE</span>
+                                    <strong>From:</strong> security@paypaI-verification.com
+                                </div>
+                                <div class="email-subject">
+                                    <strong>Subject:</strong> URGENT: Your PayPal Account Will Be Suspended
+                                </div>
+                                <div class="email-body">
+                                    <p>Dear Customer,</p>
+                                    <p>Your PayPal account has been limited due to suspicious activity. You must verify your account within 24 hours or it will be permanently suspended.</p>
+                                    <p><strong>Click here to verify your account immediately:</strong> 
+                                    <a href="#">http://paypal-verification.secure-login.net</a></p>
+                                </div>
+                                <div class="red-flags">
+                                    <h5><i class="fas fa-flag"></i> Red Flags:</h5>
+                                    <ul>
+                                        <li>Misspelled domain (paypaI instead of paypal)</li>
+                                        <li>Urgent language and threats</li>
+                                        <li>Suspicious URL that doesn't match PayPal</li>
+                                        <li>Generic greeting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Module Completion -->
+                    <div class="module-completion">
+                        <button class="btn btn-primary complete-module" data-module="phishing-awareness">
+                            <i class="fas fa-check"></i>
+                            Mark as Complete
+                        </button>
+                        <div class="completion-status" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Module Completed!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- URL Security Module -->
+            <div class="education-module">
+                <div class="module-header">
+                    <i class="fas fa-link"></i>
+                    <h2>URL Security</h2>
+                </div>
+                
+                <div class="module-content">
+                    <div class="content-section">
+                        <h3>Anatomy of a Secure URL</h3>
+                        <div class="url-breakdown">
+                            <div class="url-example">
+                                <span class="url-part protocol">https://</span><span class="url-part domain">www.example.com</span><span class="url-part path">/secure/login</span>
+                            </div>
+                            <div class="url-explanations">
+                                <div class="url-explanation">
+                                    <span class="protocol">HTTPS</span>
+                                    <p>Secure, encrypted connection</p>
+                                </div>
+                                <div class="url-explanation">
+                                    <span class="domain">Domain</span>
+                                    <p>Legitimate, recognizable domain name</p>
+                                </div>
+                                <div class="url-explanation">
+                                    <span class="path">Path</span>
+                                    <p>Logical page structure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>Dangerous URL Patterns</h3>
+                        <div class="danger-patterns">
+                            <div class="pattern-item">
+                                <div class="pattern-example">http://192.168.1.100/login</div>
+                                <div class="pattern-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>IP Address instead of domain name</span>
+                                </div>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-example">https://paypal.fake-security.tk</div>
+                                <div class="pattern-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Suspicious subdomain + unusual TLD</span>
+                                </div>
+                            </div>
+                            <div class="pattern-item">
+                                <div class="pattern-example">https://bit.ly/abc123</div>
+                                <div class="pattern-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>URL shortener hiding real destination</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Module Completion -->
+                    <div class="module-completion">
+                        <button class="btn btn-primary complete-module" data-module="url-security">
+                            <i class="fas fa-check"></i>
+                            Mark as Complete
+                        </button>
+                        <div class="completion-status" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Module Completed!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media File Security Module -->
+            <div class="education-module">
+                <div class="module-header">
+                    <i class="fas fa-file-image"></i>
+                    <h2>Media File Security</h2>
+                </div>
+                
+                <div class="module-content">
+                    <div class="content-section">
+                        <h3>File-Based Threats</h3>
+                        <p>Cybercriminals often disguise malicious software as innocent-looking media files. These can include:</p>
+                        
+                        <div class="threats-grid">
+                            <div class="threat-item">
+                                <i class="fas fa-bug"></i>
+                                <h4>Malware</h4>
+                                <p>Malicious code hidden in images or videos that can infect your system</p>
+                            </div>
+                            <div class="threat-item">
+                                <i class="fas fa-mask"></i>
+                                <h4>Trojans</h4>
+                                <p>Programs that appear harmless but contain hidden malicious functionality</p>
+                            </div>
+                            <div class="threat-item">
+                                <i class="fas fa-eye"></i>
+                                <h4>Spyware</h4>
+                                <p>Software that secretly monitors and collects personal information</p>
+                            </div>
+                            <div class="threat-item">
+                                <i class="fas fa-lock"></i>
+                                <h4>Ransomware</h4>
+                                <p>Malicious software that encrypts files and demands payment</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>File Security Best Practices</h3>
+                        <div class="best-practices">
+                            <div class="practice-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Scan Before Opening</h4>
+                                    <p>Always scan files with antivirus software before opening</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <i class="fas fa-eye"></i>
+                                <div>
+                                    <h4>Check File Extensions</h4>
+                                    <p>Be suspicious of files with double extensions (e.g., image.jpg.exe)</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <i class="fas fa-download"></i>
+                                <div>
+                                    <h4>Trust Your Sources</h4>
+                                    <p>Only download files from trusted, verified sources</p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <div>
+                                    <h4>Keep Software Updated</h4>
+                                    <p>Ensure your operating system and antivirus are up to date</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Quiz -->
+            <div class="education-module">
+                <div class="module-header">
+                    <i class="fas fa-question-circle"></i>
+                    <h2>Knowledge Check</h2>
+                </div>
+                
+                <div class="module-content">
+                    <div class="quiz-container">
+                        <div class="quiz-question active" data-question="1">
+                            <h3>Question 1: Which of these URLs looks most suspicious?</h3>
+                            <div class="quiz-options">
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="a">
+                                    <span>https://www.amazon.com/products</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="b">
+                                    <span>https://amaz0n-security.tk/verify</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="c">
+                                    <span>https://support.microsoft.com/help</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question" data-question="2">
+                            <h3>Question 2: What's the biggest red flag in a phishing email?</h3>
+                            <div class="quiz-options">
+                                <label class="quiz-option">
+                                    <input type="radio" name="q2" value="a">
+                                    <span>Long paragraphs</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q2" value="b">
+                                    <span>Urgent language demanding immediate action</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q2" value="c">
+                                    <span>Professional formatting</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question" data-question="3">
+                            <h3>Question 3: A file named "photo.jpg.exe" is:</h3>
+                            <div class="quiz-options">
+                                <label class="quiz-option">
+                                    <input type="radio" name="q3" value="a">
+                                    <span>A normal image file</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q3" value="b">
+                                    <span>Potentially malicious with double extension</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q3" value="c">
+                                    <span>A compressed image file</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-navigation">
+                            <button id="prev-question" class="btn btn-secondary" disabled>Previous</button>
+                            <span class="question-counter">Question <span id="current-q">1</span> of 3</span>
+                            <button id="next-question" class="btn btn-primary">Next</button>
+                            <button id="submit-quiz" class="btn btn-success" style="display: none;">Submit Quiz</button>
+                        </div>
+
+                        <div id="quiz-result" class="quiz-result" style="display: none;">
+                            <h3>Quiz Results</h3>
+                            <div class="result-content">
+                                <div class="score-circle">
+                                    <span class="score-text">Your Score</span>
+                                    <span class="score-number" id="final-score">0/3</span>
+                                </div>
+                                <div class="result-feedback" id="quiz-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Module Completion -->
+                    <div class="module-completion">
+                        <button class="btn btn-primary complete-module" data-module="password-security">
+                            <i class="fas fa-check"></i>
+                            Mark as Complete
+                        </button>
+                        <div class="completion-status" style="display: none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Module Completed!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>CyberGuard</span>
+                    </div>
+                    <p>Advanced cybersecurity education platform for students and professionals.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CyberGuard. Educational cybersecurity platform for learning purposes.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/education.js') }}"></script>
+</body>
+</html>

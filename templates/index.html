@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard - Cybersecurity Education Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberGuard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/scanner" class="nav-link">Security Scanner</a></li>
+                <li><a href="/advanced" class="nav-link">Advanced Tools</a></li>
+                <li><a href="/education" class="nav-link">Learn</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Protect Yourself</span><br>
+                        From Cyber Threats
+                    </h1>
+                    <p class="hero-description">
+                        Advanced cybersecurity education platform with real-time threat analysis.
+                        Learn to identify phishing attempts, malicious links, and suspicious media files.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/scanner" class="btn btn-primary">
+                            <i class="fas fa-search"></i>
+                            Start Scanning
+                        </a>
+                        <a href="/education" class="btn btn-secondary">
+                            <i class="fas fa-graduation-cap"></i>
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="security-shield">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="shield-rings">
+                            <div class="ring ring-1"></div>
+                            <div class="ring ring-2"></div>
+                            <div class="ring ring-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-header">
+                <h2>Comprehensive Security Analysis</h2>
+                <p>Our platform provides multi-layered threat detection and educational resources</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>URL Scanner</h3>
+                    <p>Analyze suspicious links and URLs for phishing indicators, domain reputation, and safety metrics.</p>
+                    <ul class="feature-list">
+                        <li>Domain age verification</li>
+                        <li>Suspicious pattern detection</li>
+                        <li>URL shortener analysis</li>
+                        <li>Real-time threat assessment</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Analysis</h3>
+                    <p>Examine email content and headers to identify phishing attempts and social engineering tactics.</p>
+                    <ul class="feature-list">
+                        <li>Content keyword analysis</li>
+                        <li>Sender verification</li>
+                        <li>Urgency pattern detection</li>
+                        <li>Link safety checking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-image"></i>
+                    </div>
+                    <h3>Media File Scanner</h3>
+                    <p>Detect malicious media files, analyze file integrity, and identify potential security threats.</p>
+                    <ul class="feature-list">
+                        <li>File type verification</li>
+                        <li>Malware signature detection</li>
+                        <li>Extension spoofing check</li>
+                        <li>Hash-based analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="99.7">0</div>
+                    <div class="stat-label">Detection Accuracy</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50000">0</div>
+                    <div class="stat-label">Threats Analyzed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="24">0</div>
+                    <div class="stat-label">Hours Protection</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Students Trained</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="cta-content">
+                <h2>Ready to Enhance Your Cybersecurity?</h2>
+                <p>Join thousands of users who trust CyberGuard for their security education and threat analysis needs.</p>
+                <div class="cta-buttons">
+                    <a href="/scanner" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        Get Started Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>CyberGuard</span>
+                    </div>
+                    <p>Advanced cybersecurity education platform for students and professionals.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/scanner">Scanner</a></li>
+                        <li><a href="/education">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Security Features</h4>
+                    <ul>
+                        <li>URL Analysis</li>
+                        <li>Email Scanning</li>
+                        <li>Media File Check</li>
+                        <li>Threat Intelligence</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CyberGuard. Educational cybersecurity platform for learning purposes.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
